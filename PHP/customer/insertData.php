@@ -38,6 +38,7 @@ if($result){
         $new_file_name =strtolower($file);
         $final_file =str_replace(' ', '-', $new_file_name);
         if (move_uploaded_file($file_loc, $folder.$final_file)) {
+            //echo "<script>alert ('berjaya upload');</script>";
         ?>
         
             <script>
@@ -57,8 +58,15 @@ if($result){
 
     //send it to the database---insert into
     $result = mysqli_query($mysqli, "INSERT INTO customers (first_name, last_name, email, photo) VALUES ('$fname', '$lname', '$email', '$Pic')");
-    if ($result)
-	    header("Location: customerpage.php");
+    if ($result) {
+        echo 
+        "<script>
+        alert ('Data has been inserted');
+        window.location.href='customer.php');
+        </script>";
+
+        
+
     else 
         echo "problem to insert data";
 
