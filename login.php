@@ -1,5 +1,5 @@
 <html>
-    <head></head>
+<?php require('header.php'); ?>
 <body>
     <form action ="PHP/login.php" method = "post">
     <table border = "1">
@@ -26,7 +26,7 @@
         </tr>
         <tr>
             <td>
-                <a href ="index.html">Back</a>
+                <a href ="index.php">Back</a>
                 </td>
                 <td>
                     <input type= "submit" name ="submit" value ="Login"> 

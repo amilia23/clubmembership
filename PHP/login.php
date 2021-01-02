@@ -25,13 +25,13 @@ if(isset($_POST['submit'])){
     }
     else if ( $count2 == 1){
         $_SESSION['login_user'] = $user;
-        header ("location: customer.php");
+        header ("location: customer/customer.php");
         
     }
     else if ( $count3 == 1){
         echo "<script>alert(\"Wait for Approval\");
 
-        window.location.href = \"../index.html\";
+        window.location.href = \"../index.php\";
 
         </script>";
     }
@@ -40,7 +40,7 @@ if(isset($_POST['submit'])){
     else{
         echo "<script>alert(\"Your Login Name or Password is invalid\");
     
-        window.location.href = \"../index.html\";
+        window.location.href = \"../index.php\";
     
             </script>";
 
@@ -51,7 +51,7 @@ if(isset($_POST['submit'])){
     else{
         echo "<script>alert(\"Your Login Name or Password is invalid\");
     
-            window.location.href = \"../index.html\";
+            window.location.href = \"../index.php\";
     
             </script>";
 

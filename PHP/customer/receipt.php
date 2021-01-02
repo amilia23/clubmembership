@@ -39,7 +39,7 @@
 		</tr>
 		<tr>
 			<td>
-				<a href="customerpage.html">Back</a>
+				<a href="customerpage.php">Back</a>
 			</td>
 		</tr>
 	</table>

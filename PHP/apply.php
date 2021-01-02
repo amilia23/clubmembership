@@ -13,13 +13,13 @@ if (isset($_POST['submit'])){
 
     if ($result) {
         echo "<script>alert(\"Success\");
-        window.location.href=\"../index.html\";
+        window.location.href=\"../index.php\";
         </script>";
     }
 
 	else{
         echo "<script>alert(\"Failed\");
-        window.location.href=\"../register.html\";
+        window.location.href=\"../register.php\";
         </script>";
 
     }

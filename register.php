@@ -1,10 +1,7 @@
 <html>
-    <head>
-<!---------<link rel="stylesheet" type="text/css" href="club.css">---->
-<meta charset="utf-8">
-<title>Register Account</title>
-</head>
+<?php require('header.php'); ?>
 <body>
+<h1>Register Account</h1>
     <form action ="PHP/apply.php" method = "POST">
     <table border = "1">
         <tr>
@@ -38,7 +35,7 @@
         </tr>
         <tr>
             <td colspan = "2">
-                <a href ="index.html" class = "g">Cancel</a>
+                <a href ="index.php" class = "g">Cancel</a>
                 <input type= "submit" name ="submit" value ="Apply" class ="g"> 
             </td>
         </tr>
