@@ -55,8 +55,7 @@ if($result){
         ?>
       </td>
       <td>
-        <input type = "hidden"  name = "photo" value = "<?php echo $row1['photo']; ?>">
-        <?php echo $row1['photo']; ?>
+          <img src="../uploads/<?php echo $row1['photo']  ?>" width ="10%">
       </td>
       <td>
         <input type = "hidden"  name = "username" value = "<?php echo $row1['username']; ?>">
@@ -67,13 +66,13 @@ if($result){
         <?php echo $row1['email'];?>
       </td>
       <td>
-          <a href = "viewDetail.php?id=<?php echo $row1['id']?> ">
+          <a href = "viewDetail.php?id=<?php echo $row1['id'];?> ">
             <img src = "../images/eyes.png" width="2%" >
           </a>
-          <a href = "updatecustomer.php?id=<?php echo $row1['id']?>">
+          <a href = "updatecustomer.php?id=<?php echo $row1['id'];?>">
             <img src = "../images/pen.png" width="2%">
           </a>
-          <a href = "delete.php?id=<?php echo $row1['id']?>" onclick = "return confirm('Are you sure you want to remove this data?')"> 
+          <a href = "delete.php?id=<?php echo $row1['id'];?>" onclick = "return confirm('Are you sure you want to remove this data?')"> 
             <img src = "../images/delete.png"width = "2%">
           </a>
       </td>
