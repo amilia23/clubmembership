@@ -1,55 +1,59 @@
 <html>
 <?php require('header.php'); ?>
-<body>
-<h1>Register Account</h1>
-    <form action ="PHP/apply.php" method = "POST">
-    <table border = "1">
-        <tr>
-            <td colspan="2">
-                <p>Register Form</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Username:</p>
-            </td>
-            <td>
-                <input type ="text" name = "username">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Password:</p>
-                </td>
-                <td>
-                    <input type ="password" name = "pass">
-                </td>
-        </tr>
-        <tr>
-            <td>
-                <p>Email:</p>
-                </td>
-                <td>
-                    <input type ="text" name = "email">
-                </td>
-        </tr>
-        <tr>
-            <td colspan = "2">
-                <a href ="index.php" class = "g">Cancel</a>
-                <input type= "submit" name ="submit" value ="Apply" class ="g"> 
-            </td>
-        </tr>
-        <tr>
-			<td colspan="2">
-			    <b><p class="b">Notes</p></b>
-				<ul>
-					<li class="d">Once your registration APPROVED by Admin, you may login your account.</li>
-					<li class="d">Upload your payment receipt after login your account.</li>
-				</ul>
-			</td>
-		</tr>
-        
-    </table>
-    </form>
+
+<body style="padding-top: 10%;">
+    <center>
+    <h1>Register Account</h1>
+        <div style="margin-top: 50px; width: 500px;">
+            <form action ="PHP/apply.php" method = "POST">
+                <table class="table table-bordered">
+                    <tr>
+                        <td>
+                            <p>Username:</p>
+                        </td>
+                        <td>
+                            <input type ="text" name = "username" class="form-control">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Password:</p>
+                            </td>
+                            <td>
+                                <input type ="password" name = "pass" class="form-control">
+                            </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Email:</p>
+                            </td>
+                            <td>
+                                <input type ="text" name = "email" class="form-control">
+                            </td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2" align="center">
+                            <a href ="index.php">Cancel</a>
+                            &nbsp;&nbsp;&nbsp;
+                            <input type= "submit" name ="submit" value ="Apply" class ="btn btn-primary">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div style="border-style: solid;
+                        border-width: 1px;
+                        padding: 35px 20px 35px 20px;
+                        width: 580px;
+                        border-radius: 10px;
+                        border-color: #ccc;">
+            <b><p class="b">Notes</p></b>
+				<ol>
+					<li class="d text-left">Once your registration APPROVED by Admin, you may login your account.</li>
+					<li class="d text-left">Upload your payment receipt after login your account.</li>
+				</ol>
+            </div>
+    </center>
 </body>
+
 </html>

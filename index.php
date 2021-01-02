@@ -2,31 +2,15 @@
 
 <?php require('header.php'); ?>
 
-<body>
-    <h1>Club Membership</h1>
-    <table border="1">
-        <tr>
-            <td>
-                <h1>Main Page</h1>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="register.php">Register HERE!</a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="login.php">Login HERE! </a>
-
-
-            </td>
-        </tr>
-
-
-
-    </table>
+<body style="padding-top: 10%;">
+    <center>
+        <h1>Welcome To Our Club!</h1>
+        <div style="margin-top: 50px;">
+            <a href="register.php"><button class="btn btn-primary">Register HERE!</button></a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="login.php"><button class="btn btn-success">Login HERE!</button></a>
+        </div>
+</center>
 </body>
-</head>
 
 </html>
