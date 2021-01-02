@@ -1,5 +1,3 @@
-<!------<link rel = "stylesheet" href = "../CSS/form.css">------>
-
 <?php
 
 include('config.php');

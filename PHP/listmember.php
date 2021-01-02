@@ -1,7 +1,3 @@
-
-<!---<link rel = "stylesheet" href = "../CSS/table.css">--->
-
-
 <?php
 
 include('config.php');

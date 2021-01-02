@@ -1,5 +1,3 @@
-<!----<link rel="stylesheet" href="CSS/bootstrap.min.css">--->
-
 <?php
 
 include('config.php');

@@ -4,12 +4,12 @@ include('config.php');
 
 if (isset($_POST['submit'])){
 
-    $customer = $_POST ['username'];
-    $password = $_POSt['pass'];
-    $email = S_POST ['email'];
+    $customer = $_POST['username'];
+    $password = $_POST['pass'];
+    $email = $_POST['email'];
 
 
-    $result = mysqli_query ($mysqli, "INSERT INTO apply (username, password, email) VALUES ('$name', '$password', '$email')");
+    $result = mysqli_query($mysqli, "INSERT INTO apply (username, password, email) VALUES ('$name', '$password', '$email')");
 
     if ($result) {
         echo "<script>alert(\"Success\");
