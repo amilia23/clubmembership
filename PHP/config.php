@@ -1,8 +1,11 @@
 <?php
 
-$databaseHost = "amilia-db";
-$databaseName = "amilia_db";
-$databaseUsername = "amilia_db";
-$databasePassword = "amilia_db";
+$databaseHost = "localhost";
+$databaseName = "bljr";
+$databaseUsername = "root";
+$databasePassword = "";
 
 $mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
+
+
+?>
