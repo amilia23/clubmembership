@@ -9,7 +9,7 @@ if (isset($_POST['submit'])){
     $email = $_POST['email'];
 
 
-    $result = mysqli_query($mysqli, "INSERT INTO apply (username, password, email) VALUES ('$name', '$password', '$email')");
+    $result = mysqli_query($mysqli, "INSERT INTO apply (username, pass, email) VALUES ('$name', '$password', '$email')");
 
     if ($result) {
         echo "<script>alert(\"Success\");
