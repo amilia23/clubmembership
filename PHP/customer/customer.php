@@ -1,6 +1,6 @@
 <?php
 
-include('PHP/config.php');
+include('../config.php');
 session_start ();
 
 $user_check = $_SESSION ['login_user'];
@@ -10,29 +10,28 @@ if (!isset($_SESSION['login_user'])){
     die();
 }
 
-$result = mysqli_query($mysqli, "SELECT id FROM customers WHERE username = '$user_check");
+$login_session = "";
+$row = "";
+
+$result = mysqli_query($mysqli, "SELECT * FROM customers WHERE username = '$user_check'");
 if($result){
-    $row = mysqli_fetch_array($result, MYSQL_ASSOC);
+    $row = mysqli_fetch_array($result);
     if($row)
         $login_session = $row['username'];
 }
+
 ?>
 
 
-
 <html>
-<head>
-    <titl>Customers Page</title>
-    </head>
-
+<?php require('../../header.php'); ?>
 
     <body>
-        <table border = "1">
-            <tr>
-                <td colspan="2">
-                    <h1>Customers Page</h1>
-                </td>
-            </tr>
+    <?php $icon = 'icon1'; require('../../sitebars/sitebarCustomer.php'); ?>
+    <center>
+    <h1>Customers Page</h1><br>
+    <div style="margin-left: 250px;">
+    <table class="table table-bordered">
             <tr>
                 <td colspan = "2">
                     <h1><?php echo $login_session; ?> </h1>
@@ -56,7 +55,7 @@ if($result){
             </tr>
             <tr>
                 <td>
-                    <?php echo($row['password']); ?>
+                    <?php echo($row['pass']); ?>
                     
                 </td>
             </tr>
@@ -74,14 +73,13 @@ if($result){
             <tr>
                 <td>
                     Status:
-                </td>
-                <td>
                     <?php 
                     if ($row['status']=="1"){
                         echo "Approved";
                     }
                     ?>
-
+                </td>
+                </tr>
               <tr>
                 <td>
                     Payment:
@@ -159,6 +157,8 @@ if($result){
 
 
         </table>
+                    </div>
+                    </center>
     </body>
 </head>
 </html>

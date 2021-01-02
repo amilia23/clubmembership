@@ -2,7 +2,7 @@
 
 <?php require('header.php'); ?>
 
-<body style="padding-top: 10%;">
+<body style="padding-top: 5%;">
     <center>
         <h1>Welcome To Our Club!</h1>
         <div style="margin-top: 50px;">

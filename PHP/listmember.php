@@ -11,26 +11,19 @@ if (!isset($_SESSION['login_user'])){
 
 }
 
-$result = mysqli_query($mysqli, "SELECT username FROM admin WHERE username = '$user_check'");
-if($result){
-    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    if($row)
-        $login_session = $row['username'];
-
 ?>
 
 
 <html>
+<?php require('../header.php'); ?>
 <body>
-    
-<h1><center> List Of Members </center></h1><br>
-<tr>
-	<td colspan="5" height="50px">
-		<a href="admin.php" class="button">Back</a>
-	</td>
-</tr>
+<?php $icon = 'icon2'; require('../sitebars/sitebarAdmin.php'); ?>
 <center>
-<table border = "1">
+<h1>List Of Members</h1><br>
+<div style="margin-left: 250px;">
+<a href="admin.php" class="btn btn-dark">Back</a>
+<br />
+<table class="table">
   <tr>
     <th>Id</th>
     <th>Profile Picture</th>
@@ -40,6 +33,11 @@ if($result){
   </tr>
 
   <?php
+  $result = mysqli_query($mysqli, "SELECT username FROM admin WHERE username = '$user_check'");
+  if($result){
+      $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+      if($row)
+          $login_session = $row['username'];
     $i = 1;
     $result= mysqli_query($mysqli, "SELECT * FROM customers");
 		  while ($row1 = mysqli_fetch_array($result)) {
@@ -77,12 +75,9 @@ if($result){
   </center>
 <?php
     $i++;
-}
+  }}
 ?>
     
 </table>
 </body>
 </html>
-<?php
-}
-?>

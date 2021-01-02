@@ -1,7 +1,7 @@
 <html>
 <?php require('header.php'); ?>
 
-<body style="padding-top: 10%;">
+<body style="padding-top: 5%;">
     <center>
     <h1>Register Account</h1>
         <div style="margin-top: 50px; width: 500px;">
