@@ -25,10 +25,11 @@ if (!isset($_SESSION['login_user'])){
 <br />
 <table class="table">
   <tr>
-    <th>Id</th>
-    <th>Profile Picture</th>
-    <th>Username</th>
-    <th>Email</th>
+    <th width="5%">Id</th>
+    <th width="15%">Profile Picture</th>
+    <th width="20%">Username</th>
+    <th width="20%">Email</th>
+    <th width="20%">Receipt</th>
     <th>Operation</th>
   </tr>
 
@@ -41,6 +42,10 @@ if (!isset($_SESSION['login_user'])){
     $i = 1;
     $result= mysqli_query($mysqli, "SELECT * FROM customers");
 		  while ($row1 = mysqli_fetch_array($result)) {
+        $pp = 'default_profile.png';
+        if ($row1['photo']) {
+          $pp = $row1['photo'];
+        }
   ?>   
     <tr>
       <td>
@@ -49,7 +54,7 @@ if (!isset($_SESSION['login_user'])){
         ?>
       </td>
       <td>
-          <img src="../uploads/<?php echo $row1['photo']  ?>" width ="10%">
+          <img src="../uploads/<?php echo $pp; ?>" style="max-width: 100px; max-height: 100px;">
       </td>
       <td>
         <input type = "hidden"  name = "username" value = "<?php echo $row1['username']; ?>">
@@ -60,14 +65,18 @@ if (!isset($_SESSION['login_user'])){
         <?php echo $row1['email'];?>
       </td>
       <td>
+          <input type = "hidden"  name = "receipt" value = "<?php echo $row1['receipt'];?>">
+         <a target="_blank" href="../uploads/<?php echo $row1['receipt'];?>">Receipt</a>
+      </td>
+      <td>
           <a href = "viewDetail.php?id=<?php echo $row1['id'];?> ">
-            <img src = "../images/eyes.png" width="2%" >
+            <img src = "../images/eyes.png" style="max-width: 30px; max-height: 30px;" />
           </a>
           <a href = "updatecustomer.php?id=<?php echo $row1['id'];?>">
-            <img src = "../images/pen.png" width="2%">
+            <img src = "../images/pen.png" style="max-width: 30px; max-height: 30px;" />
           </a>
           <a href = "delete.php?id=<?php echo $row1['id'];?>" onclick = "return confirm('Are you sure you want to remove this data?')"> 
-            <img src = "../images/delete.png"width = "2%">
+            <img src = "../images/delete.png" style="max-width: 30px; max-height: 30px;" />
           </a>
       </td>
     </tr> 

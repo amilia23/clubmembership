@@ -23,10 +23,11 @@ if($result){
      $pass = $_POST ['pass'];
      $email = $_POST ['email'];
      $status = $_POST ['status'];
+     $receipt = $_POST ['receipt'];
 
     if ($status == "1"){
 
-        $result = mysqli_query($mysqli, "INSERT into customers(username, pass, email, status) VALUES ('$user', '$pass', '$email', '$status')");
+        $result = mysqli_query($mysqli, "INSERT into customers(username, pass, email, status, receipt) VALUES ('$user', '$pass', '$email', '$status', '$receipt')");
 
             if ($result){
 

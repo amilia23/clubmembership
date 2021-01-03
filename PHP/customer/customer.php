@@ -20,6 +20,11 @@ if($result){
         $login_session = $row['username'];
 }
 
+$pp = 'default_profile.png';
+if ($row['photo']) {
+    $pp = $row['photo'];
+}
+
 ?>
 
 
@@ -31,18 +36,23 @@ if($result){
     <center>
     <h1>Customers Page</h1><br>
     <div style="margin-left: 250px;">
-    <table class="table table-bordered">
+    <h1><?php echo $login_session; ?> </h1>
+    <table class="table">
             <tr>
-                <td colspan = "2">
-                    <h1><?php echo $login_session; ?> </h1>
+                <td width="20%">
+                    Profile Picture
                 </td>
-            </tr>
-            <tr>
+                <td width="2%">:</td>
                 <td>
-                    Username:
+                    <img src="../../uploads/<?php echo $pp ?>" style="max-width: 100px; max-height: 100px;" />
+                    
                 </td>
             </tr>
             <tr>
+                <td width="10%">
+                    Username
+                </td>
+                <td width="2%">:</td>
                 <td>
                     <?php echo($row['username']); ?>
                     
@@ -50,10 +60,9 @@ if($result){
             </tr>
             <tr>
                 <td>
-                    Password:
-                </td>
-            </tr>
-            <tr>
+                    Password
+                    </td>
+                <td>:</td>
                 <td>
                     <?php echo($row['pass']); ?>
                     
@@ -61,10 +70,9 @@ if($result){
             </tr>
             <tr>
                 <td>
-                    Email:
-                </td>
-            </tr>
-            <tr>
+                    Email
+                    </td>
+                <td>:</td>
                 <td>
                     <?php echo($row['email']); ?>
                     
@@ -72,7 +80,10 @@ if($result){
             </tr>
             <tr>
                 <td>
-                    Status:
+                    Status
+                    </td>
+                <td>:</td>
+                <td>
                     <?php 
                     if ($row['status']=="1"){
                         echo "Approved";
@@ -82,10 +93,9 @@ if($result){
                 </tr>
               <tr>
                 <td>
-                    Payment:
-                </td>
-            </tr>
-            <tr>
+                    Payment
+                    </td>
+                <td>:</td>
                 <td>
                     <?php
                      if ($row['payment']=="0"){
@@ -100,10 +110,9 @@ if($result){
             </tr>
             <tr>
                 <td>
-                    First Name:
-                </td>
-            </tr>
-            <tr>
+                    First Name
+                    </td>
+                <td>:</td>
                 <td>
                     <?php echo($row['first_name']); ?>
                     
@@ -111,45 +120,19 @@ if($result){
             </tr>
             <tr>
                 <td>
-                    Last Name:
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <?php echo($row['last_name']); ?>
-                    
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Phone Number:
-                </td>
-            </tr>
-            <tr>
+                    Phone Number
+                    </td>
+                <td>:</td>
                 <td>
                     <?php echo($row['phone']); ?>
                     
                 </td>
             </tr>
             <tr>
-                <td>
-                    <a href = "">Make a payment </a>
-                    
-            
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href = "">Edit Profile </a>
-                    
-            
-                </td>
-            </tr>
-            <tr>
-                <td colspan = "2">
-                    <a href = "">Logout </a>
-                    
-            
+                <td colspan="3">
+                    <a class="btn btn-primary" href = "">Make a payment </a>
+                    <a class="btn btn-primary" href = "editprofile.php">Edit Profile </a>
+                    <a class="btn btn-link" href = "../Logout.php">Logout </a>
                 </td>
             </tr>
 

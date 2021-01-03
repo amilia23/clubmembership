@@ -11,50 +11,74 @@ if (!isset($_SESSION['login_user'])){
 
 }
 
-$result = mysqli_query($mysqli, "SELECT username FROM customers WHERE username = '$user_check'");
+$result = mysqli_query($mysqli, "SELECT * FROM customers WHERE username = '$user_check'");
 if($result){
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
     if($row)
         $login_session = $row['username'];
 
+
+$pp = 'default_profile.png';
+if ($row['photo']) {
+    $pp = $row['photo'];
+}
 ?>
 
 <html>
+<?php require('../../header.php'); ?>
 	<body>
-		<tr>
-			<td colspan="2">
-				<p class="a">Update your Profile Here</p>
-			</td>
-		</tr>
+	<?php $icon = 'icon1'; require('../../sitebars/sitebarCustomer.php'); ?>
+    <center>
+	<h1>Update your Profile Here</h1><br>
+    <div style="margin-left: 250px;">
 		<form action = "insertData.php" method  = "POST" enctype = "multipart/form-data">  
+		<table class="table">
 		<tr>
-			<td colspan="2">
-                <label for="photo">Upload Your Picture Here :</label><br>
-				<input type="file"  name="photo" id = "photo" size ="30"><br>
+			<td width="25%">
+                <label for="photo">Upload Your Picture Here</label>
+				</td>
+                <td width="2%">:</td>
+                <td>
+				<img src="../../uploads/<?php echo $pp ?>" style="max-width: 100px; max-height: 100px;" /> <br />
+				<input type="file"  name="photo" id = "photo" size ="30">
 			</td>
 		</tr>
-		<br>
 		<tr>
 			<td>
-                <label for="first_name">First Name :</label>
-                <input type="text" id="first_name" name="first_name">
+                <label for="first_name">First Name</label>
+				</td>
+                <td width="2%">:</td>
+                <td>
+                <input value="<?php echo $row['first_name'] ?>" type="text" id="first_name" name="first_name" class="form-control" placeholder="Update first name here">
 			</td>
 		</tr>
-		<br>
 		<tr>
 			<td><br>
-				<label for="last_name">Last Name :</label>
-                <input type="text" id="last_name" name="last_name"><br>
+				<label for="phone">Phone No.</label>
+				</td>
+                <td width="2%">:</td>
+                <td>
+                <input value="<?php echo $row['phone'] ?>" type="text" id="phone" name="phone" class="form-control" placeholder="Update phone number here">
 			</td>
 		</tr>
-		<br>
 		<tr>
 			<td>
-				<label for="email">Email :</label>
-                <input type="text" id="email" name="email"><br>
+				<label for="email">Email</label>
+				</td>
+                <td width="2%">:</td>
+                <td>
+                <input  value="<?php echo $row['email'] ?>" type="text" id="email" name="email" class="form-control" placeholder="Update email here">
 			</td>
-		<button type = "submit" class = "btn btn-primary btn-block" name = "update">Submit</button>
+		</tr>
+		<tr>
+			<td colspan="3">
+			<button type = "submit" class = "btn btn-primary" name = "update">Submit</button>
+			</td>
+		</tr>
+		</table>
 		 </form>
+		 </div>
+		 </center>
 </body>
 </html>
 <?php

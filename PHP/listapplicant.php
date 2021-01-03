@@ -30,6 +30,7 @@ if (!isset($_SESSION['login_user'])){
       <th>Username</th>
       <th>Password</th>
       <th>Email</th>
+      <th>Receipt</th>
       <th>Status</th>
       <th>Update</th>
 
@@ -66,6 +67,10 @@ if (!isset($_SESSION['login_user'])){
          <td>
          <input type = "hidden"  name = "email" value = "<?php echo $row1['email'];?>">
          <?php echo $row1['email'];?>
+        </td>
+        <td>
+          <input type = "hidden"  name = "receipt" value = "<?php echo $row1['receipt'];?>">
+         <a target="_blank" href="../uploads/<?php echo $row1['receipt'];?>">Receipt</a>
         </td>
          <td>
          <?php if($row1['status'] == "0"){

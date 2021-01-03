@@ -5,14 +5,14 @@
     <center>
     <h1>Register Account</h1>
         <div style="margin-top: 50px; width: 500px;">
-            <form action ="PHP/apply.php" method = "POST">
+            <form action ="PHP/apply.php" method = "POST" enctype = "multipart/form-data">
                 <table class="table table-bordered">
                     <tr>
                         <td>
                             <p>Username:</p>
                         </td>
                         <td>
-                            <input type ="text" name = "username" class="form-control">
+                            <input type ="text" name = "username" class="form-control" placeholder="Type username here" />
                         </td>
                     </tr>
                     <tr>
@@ -20,7 +20,7 @@
                             <p>Password:</p>
                             </td>
                             <td>
-                                <input type ="password" name = "pass" class="form-control">
+                                <input type ="password" name = "pass" class="form-control" placeholder="Type password here" /> 
                             </td>
                     </tr>
                     <tr>
@@ -28,8 +28,14 @@
                             <p>Email:</p>
                             </td>
                             <td>
-                                <input type ="text" name = "email" class="form-control">
+                                <input type ="text" name = "email" class="form-control" placeholder="Type email here" />
                             </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label for="photo">Upload Receipt Here :</label><br>
+                            <input type="file"  name="receipt" id = "receipt" size ="30" /><br>
+                        </td>
                     </tr>
                     <tr>
                         <td colspan = "2" align="center">
