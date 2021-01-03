@@ -141,7 +141,7 @@ if ($row['photo']) {
             </tr>
             <tr>
                 <td colspan="3">
-                    <a class="btn btn-primary" href = "">Make a payment </a>
+                    <a class="btn btn-primary" href = "receipt.php">Make a payment </a>
                     <a class="btn btn-primary" href = "editprofile.php">Edit Profile </a>
                     <a class="btn btn-link" href = "../Logout.php">Logout </a>
                 </td>
