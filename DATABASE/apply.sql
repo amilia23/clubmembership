@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2021 at 10:00 AM
+-- Generation Time: Jan 03, 2021 at 06:03 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.32
 
@@ -31,8 +31,16 @@ CREATE TABLE `apply` (
   `username` varchar(200) NOT NULL,
   `pass` varchar(200) NOT NULL,
   `email` varchar(200) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT 0
+  `status` int(11) NOT NULL DEFAULT 0,
+  `receipt` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `apply`
+--
+
+INSERT INTO `apply` (`username`, `pass`, `email`, `status`, `receipt`) VALUES
+('', 'abc', 'fitri@gmail.com', 0, NULL);
 
 --
 -- Indexes for dumped tables
