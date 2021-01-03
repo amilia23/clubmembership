@@ -9,7 +9,7 @@
                 <table class="table table-bordered">
                     <tr>
                         <td>
-                            <p>Username:</p>
+                            <p>Username <span style='color: red;'>*</span></p>
                         </td>
                         <td>
                             <input type ="text" name = "username" class="form-control" placeholder="Type username here" />
@@ -17,7 +17,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <p>Password:</p>
+                            <p>Password <span style='color: red;'>*</span></p>
                             </td>
                             <td>
                                 <input type ="password" name = "pass" class="form-control" placeholder="Type password here" /> 
@@ -25,15 +25,17 @@
                     </tr>
                     <tr>
                         <td>
-                            <p>Email:</p>
+                            <p>Email <span style='color: red;'>*</span></p>
                             </td>
                             <td>
                                 <input type ="text" name = "email" class="form-control" placeholder="Type email here" />
                             </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
-                            <label for="photo">Upload Receipt Here :</label><br>
+                        <td>
+                            <p>Upload Receipt Here<br />(optional)</p>
+                            </td>
+                        <td>
                             <input type="file"  name="receipt" id = "receipt" size ="30" /><br>
                         </td>
                     </tr>
@@ -56,7 +58,7 @@
             <b><p class="b">Notes</p></b>
 				<ol>
 					<li class="d text-left">Once your registration APPROVED by Admin, you may login your account.</li>
-					<li class="d text-left">Upload your payment receipt after login your account.</li>
+					<li class="d text-left">You may upload your payment receipt now OR after login your account.</li>
 				</ol>
             </div>
     </center>

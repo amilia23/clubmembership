@@ -70,7 +70,9 @@ if (!isset($_SESSION['login_user'])){
         </td>
         <td>
           <input type = "hidden"  name = "receipt" value = "<?php echo $row1['receipt'];?>">
+          <?php if ($row1['receipt']) { ?>
          <a target="_blank" href="../uploads/<?php echo $row1['receipt'];?>">Receipt</a>
+         <?php } ?>
         </td>
          <td>
          <?php if($row1['status'] == "0"){

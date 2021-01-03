@@ -29,6 +29,7 @@ if (!isset($_SESSION['login_user'])){
     <th width="15%">Profile Picture</th>
     <th width="20%">Username</th>
     <th width="20%">Email</th>
+    <th width="10%">Payment</th>
     <th width="20%">Receipt</th>
     <th>Operation</th>
   </tr>
@@ -65,14 +66,20 @@ if (!isset($_SESSION['login_user'])){
         <?php echo $row1['email'];?>
       </td>
       <td>
+          <input type = "hidden"  name = "payment" value = "<?php echo $row1['payment'];?>">
+          <?php if ($row1['payment'] == '1') { echo "Paid"; } else { echo "Unpaid"; } ?>
+      </td>
+      <td>
           <input type = "hidden"  name = "receipt" value = "<?php echo $row1['receipt'];?>">
+          <?php if ($row1['receipt']) { ?>
          <a target="_blank" href="../uploads/<?php echo $row1['receipt'];?>">Receipt</a>
+         <?php } ?>
       </td>
       <td>
           <a href = "viewDetail.php?id=<?php echo $row1['id'];?> ">
             <img src = "../images/eyes.png" style="max-width: 30px; max-height: 30px;" />
           </a>
-          <a href = "updatecustomer.php?id=<?php echo $row1['id'];?>">
+          <a href = "editcustomer.php?id=<?php echo $row1['id'];?>">
             <img src = "../images/pen.png" style="max-width: 30px; max-height: 30px;" />
           </a>
           <a href = "delete.php?id=<?php echo $row1['id'];?>" onclick = "return confirm('Are you sure you want to remove this data?')"> 

@@ -1,6 +1,6 @@
 <?php
 
-include('../config.php');
+include('./config.php');
 session_start();
 
 $user_check = $_SESSION['login_user'];
@@ -18,7 +18,8 @@ if($result){
         $login_session = $row['username'];
     }
 
-        //receive input from the form
+    //receive input from the form
+    $id = $_POST ['id'];
     $fname = $_POST ['first_name'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
@@ -29,7 +30,7 @@ if($result){
     $file_loc = $_FILES['photo']['tmp_name'];
     $file_size = $_FILES ['photo']['size'];
     $file_type = $_FILES ['photo']['type'];
-    $folder = "../../uploads/";
+    $folder = "../uploads/";
 
     if ( ! is_dir($folder)) {
         mkdir($folder);
@@ -47,18 +48,18 @@ if($result){
     }
 
     //send it to the database---insert into
-    $result = mysqli_query($mysqli, "UPDATE customers SET first_name='$fname', phone='$phone', email='$email'" . $sql_pic . " WHERE username='$login_session'");
+    $result = mysqli_query($mysqli, "UPDATE customers SET first_name='$fname', phone='$phone', email='$email'" . $sql_pic . " WHERE id='$id'");
     if ($result) {
         echo 
         "<script>
         alert ('Data has been updated');
-        window.location.href='customer.php';
+        window.location.href='viewDetail.php?id=$id';
         </script>";
     } else { 
         echo 
         "<script>
         alert ('Problem to update data');
-        window.location.href='editprofile.php';
+        window.location.href='editcustomer.php?id=$id';
         </script>";
     }
 }

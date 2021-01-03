@@ -24,10 +24,15 @@ if($result){
      $email = $_POST ['email'];
      $status = $_POST ['status'];
      $receipt = $_POST ['receipt'];
+     $payment = 0;
+
+     if ($_POST ['receipt']) {
+         $payment = 1;
+     }
 
     if ($status == "1"){
 
-        $result = mysqli_query($mysqli, "INSERT into customers(username, pass, email, status, receipt) VALUES ('$user', '$pass', '$email', '$status', '$receipt')");
+        $result = mysqli_query($mysqli, "INSERT into customers(username, pass, email, status, payment, receipt) VALUES ('$user', '$pass', '$email', '$status', '$payment', '$receipt')");
 
             if ($result){
 

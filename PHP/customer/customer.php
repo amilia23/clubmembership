@@ -129,6 +129,17 @@ if ($row['photo']) {
                 </td>
             </tr>
             <tr>
+                <td>
+                    Receipt
+                    </td>
+                <td>:</td>
+                <td>
+                     <?php if ($row['receipt']) { ?>
+                    <a target="_blank" href="../../uploads/<?php echo($row['receipt']); ?>">Receipt</a>
+                    <?php } ?>
+                </td>
+            </tr>
+            <tr>
                 <td colspan="3">
                     <a class="btn btn-primary" href = "">Make a payment </a>
                     <a class="btn btn-primary" href = "editprofile.php">Edit Profile </a>

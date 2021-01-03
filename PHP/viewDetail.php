@@ -14,58 +14,144 @@ if (!isset($_SESSION['login_user'])){
 $result = mysqli_query($mysqli, "SELECT username FROM admin WHERE username = '$user_check'");
 if($result){
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    if($row)
+    if($row) {
         $login_session = $row['username'];
+    }
 
-?>
-
-<?php
 //2) get the id from the request
 $id = $_GET ['id'];
 //3) select data from database
 $result = mysqli_query($mysqli, "SELECT *  FROM customers WHERE id=$id");
-while ($row1 = mysqli_fetch_array($result)) {
+if ($row1 = mysqli_fetch_array($result)) {
     $i = 1;
-?>
- <td>
-<head>
-    <html>
-        <body>
-          <label for = "name"> Id:</label><br>
-	      <input type= "text" id="id" name="id" value ="<?php echo $row1['id']?>" disabled><br><br>
-	      <label for = "name"> Profile Picture:</label><br>
-	      <input type= "text" id="photo" name="photo" value ="<?php echo $row1['photo']?>" disabled><br><br>
-	      <label for = "height"> Username:</label><br>
-	      <input type= "text" id="username" name="username" value="<?php echo $row1['username']?>" disabled><br><br>
-          <label for = "weight"> Password:</label><br>
-	      <input type= "text" id="pass" name="pass" value="<?php echo $row1['pass']?>" disabled><br><br>
-		  <label for="gender">Email: </label><br>
-		  <input type= "text" id="email" name="email" value="<?php echo $row1['email']?>" disabled><br><br>
-          <label for = "name"> Status:</label><br>
-	      <input type= "text" id="status" name="status" value ="<?php echo $row1['status']?>" disabled><br><br>
-	      <label for = "name"> Payment Status:</label><br>
-	      <input type= "text" id="payment" name="payment" value ="<?php echo $row1['payment']?>" disabled><br><br>
-          <label for = "name"> First Name:</label><br>
-	      <input type= "text" id="first_name" name="first_name" value ="<?php echo $row1['first_name']?>" disabled><br><br>
-          <label for = "name"> Last Name:</label><br>
-          <input type= "text" id="last_name" name="last_name" value ="<?php echo $row1['last_name']?>" disabled><br><br>
-          <label for = "name"> No Phone:</label><br>
-	      <input type= "text" id="phone" name="phone" value ="<?php echo $row1['phone']?>" disabled><br><br>
-          <label for = "name"> Receipt:</label><br>
-	      <input type= "text" id="receipt" name="receipt" value ="<?php echo $row1['receipt']?>" disabled><br><br>
 
-<button onclick="window.location.href='listmember.php';">
-        Back to Main Page
-</button>
-<?php
-    $i++;
-}
+    $pp = 'default_profile.png';
+    if ($row1['photo']) {
+        $pp = $row1['photo'];
+    }
 ?>
+
+    <html>
+    <?php require('../header.php'); ?>
+        <body>
+        <?php $icon = 'icon2'; require('../sitebars/sitebarAdmin.php'); ?>
+        <center>
+        <h1>View Member</h1><br>
+        <div style="margin-left: 250px;">
+        <button class="btn btn-link" onclick="window.location.href='listmember.php';">
+                Back
+        </button>
+        <table class="table">
+            <tr>
+                <td width="20%">
+                    Profile Picture
+                </td>
+                <td width="2%">:</td>
+                <td>
+                    <img src="../../uploads/<?php echo $pp ?>" style="max-width: 100px; max-height: 100px;" />
+                </td>
+            </tr>
+            <tr>
+                <td width="10%">
+                    Username
+                </td>
+                <td width="2%">:</td>
+                <td>
+                    <?php echo($row1['username']); ?>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password
+                    </td>
+                <td>:</td>
+                <td>
+                    <?php echo($row1['pass']); ?>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Email
+                    </td>
+                <td>:</td>
+                <td>
+                    <?php echo($row1['email']); ?>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Status
+                    </td>
+                <td>:</td>
+                <td>
+                    <?php 
+                    if ($row1['status']=="1"){
+                        echo "Approved";
+                    }
+                    ?>
+                </td>
+                </tr>
+              <tr>
+                <td>
+                    Payment
+                    </td>
+                <td>:</td>
+                <td>
+                    <?php
+                     if ($row1['payment']=="0"){
+                        echo "Unpaid";
+                     }
+                     else {
+                         echo "Paid";
+                     }
+                     ?>
+                </td>
+                    </tr> 
+            </tr>
+            <tr>
+                <td>
+                    First Name
+                    </td>
+                <td>:</td>
+                <td>
+                    <?php echo($row1['first_name']); ?>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Phone Number
+                    </td>
+                <td>:</td>
+                <td>
+                    <?php echo($row1['phone']); ?>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Receipt
+                    </td>
+                <td>:</td>
+                <td>
+                     <?php if ($row1['receipt']) { ?>
+                    <a target="_blank" href="../uploads/<?php echo($row1['receipt']); ?>">Receipt</a>
+                    <?php } ?>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <a class="btn btn-primary" href = "editcustomer.php?id=<?php echo $id ?>">Edit Member </a>
+                </td>
+            </tr>
+        </table>
+</div>
+</center>
 </body>
 </html>
-</head>
-
 <?php
-}
+}}
 ?>
   
